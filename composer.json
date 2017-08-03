@@ -25,6 +25,9 @@
             },
             "drupal/like_and_dislike": {
                 "Fix preview on node": "https://www.drupal.org/files/issues/2848080-2-preview-fails-on-node.patch"
+            },
+            "drupal/group": {
+                "Request membership": "https://www.drupal.org/files/issues/request_membership-2752603-29.patch"
             }
         }
     },
