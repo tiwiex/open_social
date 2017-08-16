@@ -1,7 +1,10 @@
 <?php
 
+/**
+ * @file
+ */
+
 use Drupal\DrupalExtension\Context\DrupalContext;
-use Behat\Mink\Element\Element;
 use Behat\Behat\Hook\Scope\BeforeScenarioScope;
 
 use Behat\Gherkin\Node\TableNode;
@@ -10,7 +13,6 @@ use Behat\Gherkin\Node\TableNode;
  * Provides pre-built step definitions for interacting with Open Social.
  */
 class SocialDrupalContext extends DrupalContext {
-
 
   /**
    * @beforeScenario @api
@@ -27,7 +29,7 @@ class SocialDrupalContext extends DrupalContext {
    * | title     | My node        |
    * | Field One | My field value |
    * | status    | 1              |
-   * | ...       | ...            |
+   * | ...       | ...            |.
    *
    * @Given I am viewing my :type( content):
    */
@@ -41,7 +43,7 @@ class SocialDrupalContext extends DrupalContext {
     );
     foreach ($fields->getRowsHash() as $field => $value) {
       if (strpos($field, 'date') !== FALSE) {
-        $value =  date('Y-m-d H:i:s', strtotime($value));
+        $value = date('Y-m-d H:i:s', strtotime($value));
       }
       $node->{$field} = $value;
     }
@@ -75,6 +77,7 @@ class SocialDrupalContext extends DrupalContext {
     // Set internal browser on the node.
     $this->getSession()->visit($this->locatePath('/node/' . $saved->nid));
   }
+
   /**
    * @override DrupalContext:createNodes().
    *
@@ -94,8 +97,7 @@ class SocialDrupalContext extends DrupalContext {
   /**
    * @When I wait for the queue to be empty
    */
-  public function iWaitForTheQueueToBeEmpty()
-  {
+  public function iWaitForTheQueueToBeEmpty() {
     $workerManager = \Drupal::service('plugin.manager.queue_worker');
     /** @var Drupal\Core\Queue\QueueFactory; $queue */
     $queue = \Drupal::service('queue');
@@ -123,8 +125,7 @@ class SocialDrupalContext extends DrupalContext {
    *
    * @param $tour_id
    */
-  public function iResetTour($tour_id)
-  {
+  public function iResetTour($tour_id) {
     $query = \Drupal::database()->delete('users_data');
     $query->condition('module', 'social_tour');
     $query->condition('name', 'social-home');
@@ -159,4 +160,5 @@ class SocialDrupalContext extends DrupalContext {
   public function iEnableTheTourSetting() {
     \Drupal::configFactory()->getEditable('social_tour.settings')->set('social_tour_enabled', 1)->save();
   }
+
 }

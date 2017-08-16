@@ -3,7 +3,6 @@
 namespace Drupal\social_like\Plugin\ActivityContext;
 
 use Drupal\activity_creator\Plugin\ActivityContextBase;
-use Drupal\Core\Entity\Entity;
 use Drupal\votingapi\Entity\Vote;
 
 /**

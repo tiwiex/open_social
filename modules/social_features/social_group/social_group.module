@@ -16,7 +16,6 @@ use Drupal\group\Entity\GroupContentInterface;
 use Drupal\group\Entity\GroupContentType;
 use Drupal\group\Entity\GroupInterface;
 use Drupal\group\Entity\GroupContent;
-use Drupal\group\GroupMembership;
 use Drupal\social_group\Form\SocialGroupAddForm;
 use Drupal\social_group\SocialGroupHelperService;
 use Drupal\views\ViewExecutable;

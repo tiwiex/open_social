@@ -20,6 +20,9 @@ class ActivityFactory extends ControllerBase {
    */
   private $activityDestinationManager;
 
+  /**
+   *
+   */
   public function __construct(ActivityDestinationManager $activityDestinationManager) {
     $this->activityDestinationManager = $activityDestinationManager;
   }
